@@ -22,10 +22,10 @@ usage:
             host-pattern: 'app*.example.com'
             proxyjump-config: jumphost-user@jumphost02.example.com
         # Make both jumphosts reachable
-        - knock:
+        - ssh-jumphost/knock:
             host: jumphost01.example.com
             sequence: $PORT_KNOCKING_PROD_ON
-        - knock:
+        - ssh-jumphost/knock:
             host: jumphost02.example.com
             sequence: $PORT_KNOCKING_PROD_ON
         # Run your deployment
@@ -34,10 +34,10 @@ usage:
             command: |
               make deploy-prod
         # Close ssh port for both again
-        - knock:
+        - ssh-jumphost/knock:
             host: jumphost01.example.com
             sequence: $PORT_KNOCKING_PROD_OFF
-        - knock:
+        - ssh-jumphost/knock:
             host: jumphost02.example.com
             sequence: $PORT_KNOCKING_PROD_OFF
   workflows:
