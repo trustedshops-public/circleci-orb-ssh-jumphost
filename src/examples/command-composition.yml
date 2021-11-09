@@ -5,6 +5,7 @@ usage:
     ssh-jumphost: trustedshops-public/ssh-jumphost@<version>
   jobs:
     deploy-prod:
+      executor: ssh-jumphost/minimal
       steps:
         - ssh-jumphost/install-dependencies
         - ssh-jumphost/setup-ssh:
