@@ -1,3 +1,10 @@
+## [1.0.2](https://github.com/trustedshops-public/circleci-orb-ssh-jumphost/compare/1.0.1...1.0.2) (2021-11-09)
+
+
+### Bug Fixes
+
+* Fix example for composite usage ([e043607](https://github.com/trustedshops-public/circleci-orb-ssh-jumphost/commit/e043607d1a9640b1a20da1e363cb26436489c1c6))
+
 ## [1.0.1](https://github.com/trustedshops-public/circleci-orb-ssh-jumphost/compare/1.0.0...1.0.1) (2021-11-09)
 
 
