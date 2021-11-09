@@ -1,0 +1,46 @@
+description: Combine commands to meet your requirements
+usage:
+  version: 2.1
+  orbs:
+    ssh-jumphost: trustedshops-public/ssh-jumphost@<version>
+  jobs:
+    deploy-prod:
+      steps:
+        - ssh-jumphost/install-dependencies
+        - ssh-jumphost/setup-ssh:
+            key-fingerprint: 'a:b:c:d:e:f:g:h:i:j:k:l:m:n:o:p'
+            #  e.g you want to access postgres01-prod.example.com, web01-prod.example.com
+            host-pattern: '*prod*.example.com'
+            ssh-username: deploy-user
+        # We want to use jumphost01 for all web servers
+        - ssh-jumphost/setup-proxyjump:
+            host-pattern: 'web*.example.com'
+            proxyjump-config: jumphost-user@jumphost01.example.com
+        # ... and jumphost02 for all appservers
+        - ssh-jumphost/setup-proxyjump:
+            host-pattern: 'app*.example.com'
+            proxyjump-config: jumphost-user@jumphost02.example.com
+        # Make both jumphosts reachable
+        - knock:
+            host: jumphost01.example.com
+            sequence: $PORT_KNOCKING_PROD_ON
+        - knock:
+            host: jumphost02.example.com
+            sequence: $PORT_KNOCKING_PROD_ON
+        # Run your deployment
+        - run:
+            name: Execute the ansible playbook to deploy the latest version
+            command: |
+              make deploy-prod
+        # Close ssh port for both again
+        - knock:
+            host: jumphost01.example.com
+            sequence: $PORT_KNOCKING_PROD_OFF
+        - knock:
+            host: jumphost02.example.com
+            sequence: $PORT_KNOCKING_PROD_OFF
+  workflows:
+    version: 2
+    continious:
+      jobs:
+        - deploy-prod

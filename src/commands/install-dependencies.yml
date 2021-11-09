@@ -1,0 +1,7 @@
+description: >
+  Install dependencies required to connect to the jumphost
+
+steps:
+  - run:
+      name: Install dependencies for jumphost access
+      command: <<include(scripts/install-dependencies.sh)>>

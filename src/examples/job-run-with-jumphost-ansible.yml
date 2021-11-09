@@ -1,0 +1,32 @@
+description: >
+  Using the jumphost job with minimal configuration to do your deployment.
+  This example assumes you specify the jumphost configuration inside ansible or in any other
+  provisionnig tool you use.
+usage:
+  version: 2.1
+  orbs:
+    ssh-jumphost: trustedshops-public/ssh-jumphost@<version>
+  workflows:
+    version: 2
+    continious:
+      jobs:
+        - ssh-jumphost/run-with-jumphost:
+            name: deploy-prod
+            jumphost-hostname: jumphost.example.com
+            key-fingerprint: 'a:b:c:d:e:f:g:h:i:j:k:l:m:n:o:p'
+            #  e.g you want to access postgres01-prod.example.com, web01-prod.example.com
+            host-pattern: '*prod*.example.com'
+            # store them in env vars to prevent exposing via output
+            on-sequence: $PORT_KNOCKING_PROD_ON
+            off-sequence: $PORT_KNOCKING_PROD_OFF
+            steps:
+              - checkout
+              - run:
+                  name: Execute the ansible playbook to deploy the latest version
+                  command: |
+                    ansible-playbook provision.yml
+                    # Make sure sth like this is inside your ansible group-vars or config:
+                    # ansible_ssh_common_args: '-o ProxyJump=user@jumphost'
+            filters:
+              branches:
+                only: [ main ]

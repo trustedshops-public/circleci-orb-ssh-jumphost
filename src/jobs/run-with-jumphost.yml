@@ -1,0 +1,47 @@
+description: >
+  Run given steps with a open jumphost connection
+
+executor: <<parameters.executor>>
+
+parameters:
+  executor:
+    type: executor
+    description: Executor to use for job
+  key-fingerprint:
+    type: string
+    description: >
+      Fingerprint of the SSH key, for more information about adding ssh keys please take a look at
+      https://circleci.com/docs/2.0/configuration-reference/#add_ssh_keys
+  host-pattern:
+    type: string
+    description: Pattern to match for jumphost connection
+  on-sequence:
+    type: string
+    description: Port sequence to knock for opening ssh port
+  off-sequence:
+    type: string
+    description: Port sequence to knock for closing ssh port
+  jumphost-hostname:
+    type: string
+    description: Hostname for jumphost
+  ssh-username:
+    type: string
+    description: Username to use for ssh connections
+    default: $USER
+  delay:
+    type: integer
+    description: Belay between knocks
+    default: 500
+  steps:
+    type: steps
+    description: Steps to execute with connection open
+
+steps:
+  - run-with-jumphost:
+      jumphost-hostname: <<parameters.jumphost-hostname>>
+      key-fingerprint: <<parameters.key-fingerprint>>
+      ssh-username: <<parameters.ssh-username>>
+      host-pattern: <<parameters.host-pattern>>
+      on-sequence: <<parameters.on-sequence>>
+      off-sequence: <<parameters.off-sequence>>
+      steps: <<parameters.steps>>

@@ -1,0 +1,20 @@
+description: >
+  Run knock sequence against the given host
+
+parameters:
+  sequence:
+    type: string
+    description: Port sequence to knock
+  host:
+    type: string
+    description: Host to knock
+  delay:
+    type: integer
+    description: Belay between knocks
+    default: 1000
+
+steps:
+  - run:
+      name: Knock <<parameters.host>>
+      command: knock <<parameters.host>> <<parameters.sequence>> -d <<parameters.delay>>
+      when: always
