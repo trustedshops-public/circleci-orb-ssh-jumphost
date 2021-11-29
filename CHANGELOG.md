@@ -1,3 +1,10 @@
+## [1.0.4](https://github.com/trustedshops-public/circleci-orb-ssh-jumphost/compare/1.0.3...1.0.4) (2021-11-29)
+
+
+### Bug Fixes
+
+* Revert UserKnownHostsFile config ([fe5a958](https://github.com/trustedshops-public/circleci-orb-ssh-jumphost/commit/fe5a958ddfc160be90767e02fced0b6a39c946ac))
+
 ## [1.0.3](https://github.com/trustedshops-public/circleci-orb-ssh-jumphost/compare/1.0.2...1.0.3) (2021-11-29)
 
 
