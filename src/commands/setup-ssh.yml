@@ -30,5 +30,5 @@ steps:
           IdentitiesOnly yes
           IdentityFile ~/.ssh/id_rsa_${filesuffix}
           StrictHostKeyChecking no
-          UserKnownHostsFile /dev/null
+          UserKnownHostsFile=/dev/null
         EOT
