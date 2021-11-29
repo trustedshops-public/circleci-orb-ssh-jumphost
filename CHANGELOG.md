@@ -1,3 +1,10 @@
+## [1.0.3](https://github.com/trustedshops-public/circleci-orb-ssh-jumphost/compare/1.0.2...1.0.3) (2021-11-29)
+
+
+### Bug Fixes
+
+* Fix UserKnownHostsFile ([c183442](https://github.com/trustedshops-public/circleci-orb-ssh-jumphost/commit/c183442970fae6d48df2526ff135449609ed16da))
+
 ## [1.0.2](https://github.com/trustedshops-public/circleci-orb-ssh-jumphost/compare/1.0.1...1.0.2) (2021-11-09)
 
 
