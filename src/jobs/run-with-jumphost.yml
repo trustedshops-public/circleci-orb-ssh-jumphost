@@ -1,5 +1,6 @@
 description: >
-  Run given steps with a open jumphost connection
+  Run given steps with a open jumphost connection.
+  This also ensures the host key for your jumphost is ignored to prevent interactive dialogs inside the pipeline.
 
 executor: <<parameters.executor>>
 
@@ -37,6 +38,8 @@ parameters:
     description: Steps to execute with connection open
 
 steps:
+  - setup-ignore-host-key:
+      host-pattern: <<parameters.jumphost-hostname>>
   - run-with-jumphost:
       jumphost-hostname: <<parameters.jumphost-hostname>>
       key-fingerprint: <<parameters.key-fingerprint>>

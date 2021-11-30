@@ -1,7 +1,7 @@
 description: >
   Using the jumphost job with minimal configuration to do your deployment.
   This example assumes you specify the jumphost configuration inside ansible or in any other
-  provisionnig tool you use.
+  provisioning tool you use.
 usage:
   version: 2.1
   orbs:
