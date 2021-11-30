@@ -1,0 +1,18 @@
+description: >
+  Disable StrictHostKeyChecking and set UserKnownHostsFile to /dev/null for a given host pattern.
+  This allows you to connect to ssh keys you configured in CircleCI without a host specified
+
+parameters:
+  host-pattern:
+    type: string
+    description: Host pattern to configure the host key ignore for
+
+steps:
+  - run:
+      name: Setup ignore host key for pattern <<parameters.host-pattern>>
+      command: |
+        cat \<<EOT >> ~/.ssh/config
+        Host <<parameters.host-pattern>>
+          StrictHostKeyChecking no
+          UserKnownHostsFile=/dev/null
+        EOT
