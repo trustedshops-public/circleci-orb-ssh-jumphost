@@ -1,3 +1,10 @@
+# [1.1.0](https://github.com/trustedshops-public/circleci-orb-ssh-jumphost/compare/1.0.4...1.1.0) (2021-11-30)
+
+
+### Features
+
+* Setup ignore host key for jumphost ([#1](https://github.com/trustedshops-public/circleci-orb-ssh-jumphost/issues/1)) ([217a0b2](https://github.com/trustedshops-public/circleci-orb-ssh-jumphost/commit/217a0b20040fe5a3af37d499b1aff88db013696b))
+
 ## [1.0.4](https://github.com/trustedshops-public/circleci-orb-ssh-jumphost/compare/1.0.3...1.0.4) (2021-11-29)
 
 
