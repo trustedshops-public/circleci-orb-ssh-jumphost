@@ -38,8 +38,6 @@ parameters:
     description: Steps to execute with connection open
 
 steps:
-  - setup-ignore-host-key:
-      host-pattern: <<parameters.jumphost-hostname>>
   - run-with-jumphost:
       jumphost-hostname: <<parameters.jumphost-hostname>>
       key-fingerprint: <<parameters.key-fingerprint>>

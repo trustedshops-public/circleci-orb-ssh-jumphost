@@ -37,6 +37,8 @@ steps:
       key-fingerprint: <<parameters.key-fingerprint>>
       host-pattern: <<parameters.host-pattern>>
       username: <<parameters.ssh-username>>
+  - setup-ignore-host-key:
+      host-pattern: <<parameters.jumphost-hostname>>
   - knock:
       host: <<parameters.jumphost-hostname>>
       sequence: <<parameters.on-sequence>>
