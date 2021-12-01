@@ -1,3 +1,10 @@
+# [1.2.0](https://github.com/trustedshops-public/circleci-orb-ssh-jumphost/compare/1.1.0...1.2.0) (2021-12-01)
+
+
+### Features
+
+* Move ignore hostkey check to command ([775827c](https://github.com/trustedshops-public/circleci-orb-ssh-jumphost/commit/775827c7b459e4475e0a84c999898f7e0bf58f52))
+
 # [1.1.0](https://github.com/trustedshops-public/circleci-orb-ssh-jumphost/compare/1.0.4...1.1.0) (2021-11-30)
 
 
