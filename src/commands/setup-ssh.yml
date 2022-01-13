@@ -24,6 +24,7 @@ steps:
       command: |
         filesuffix=$(echo "<<parameters.key-fingerprint>>" | sed "s/://g")
         username=<<parameters.username>>
+        mkdir -p ~/.ssh
         cat \<<EOT >> ~/.ssh/config
         Host <<parameters.host-pattern>>
           User ${username:-`whoami`}
