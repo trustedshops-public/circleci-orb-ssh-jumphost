@@ -1,3 +1,10 @@
+# [1.3.0](https://github.com/trustedshops-public/circleci-orb-ssh-jumphost/compare/1.2.0...1.3.0) (2022-01-13)
+
+
+### Features
+
+* Ensure ssh dir exists ([#2](https://github.com/trustedshops-public/circleci-orb-ssh-jumphost/issues/2)) ([44833dc](https://github.com/trustedshops-public/circleci-orb-ssh-jumphost/commit/44833dc8e9e9065d41712957a36480de60e37296))
+
 # [1.2.0](https://github.com/trustedshops-public/circleci-orb-ssh-jumphost/compare/1.1.0...1.2.0) (2021-12-01)
 
 
