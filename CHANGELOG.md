@@ -1,3 +1,14 @@
+## [2.0.0](https://github.com/trustedshops-public/circleci-orb-ssh-jumphost/compare/1.3.0...2.0.0) (2023-05-26)
+
+
+### ⚠ BREAKING CHANGES
+
+* Migrate to to orb tools v12 (#10)
+
+### Code Refactoring
+
+* Migrate to to orb tools v12 ([#10](https://github.com/trustedshops-public/circleci-orb-ssh-jumphost/issues/10)) ([baf64ea](https://github.com/trustedshops-public/circleci-orb-ssh-jumphost/commit/baf64eaa8059669772618bf2baf34e75c76e1bfe))
+
 # [1.3.0](https://github.com/trustedshops-public/circleci-orb-ssh-jumphost/compare/1.2.0...1.3.0) (2022-01-13)
 
 
