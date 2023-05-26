@@ -3,16 +3,16 @@ description: >
   This allows you to connect to ssh keys you configured in CircleCI without a host specified
 
 parameters:
-  host-pattern:
+  host_pattern:
     type: string
     description: Host pattern to configure the host key ignore for
 
 steps:
   - run:
-      name: Setup ignore host key for pattern <<parameters.host-pattern>>
+      name: Setup ignore host key for pattern <<parameters.host_pattern>>
       command: |
         cat \<<EOT >> ~/.ssh/config
-        Host <<parameters.host-pattern>>
+        Host <<parameters.host_pattern>>
           StrictHostKeyChecking no
           UserKnownHostsFile=/dev/null
         EOT

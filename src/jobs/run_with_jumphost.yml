@@ -8,24 +8,24 @@ parameters:
   executor:
     type: executor
     description: Executor to use for job
-  key-fingerprint:
+  key_fingerprint:
     type: string
     description: >
       Fingerprint of the SSH key, for more information about adding ssh keys please take a look at
       https://circleci.com/docs/2.0/configuration-reference/#add_ssh_keys
-  host-pattern:
+  host_pattern:
     type: string
     description: Pattern to match for jumphost connection
-  on-sequence:
+  on_sequence:
     type: string
     description: Port sequence to knock for opening ssh port
-  off-sequence:
+  off_sequence:
     type: string
     description: Port sequence to knock for closing ssh port
-  jumphost-hostname:
+  jumphost_hostname:
     type: string
     description: Hostname for jumphost
-  ssh-username:
+  ssh_username:
     type: string
     description: Username to use for ssh connections
     default: $USER
@@ -38,11 +38,11 @@ parameters:
     description: Steps to execute with connection open
 
 steps:
-  - run-with-jumphost:
-      jumphost-hostname: <<parameters.jumphost-hostname>>
-      key-fingerprint: <<parameters.key-fingerprint>>
-      ssh-username: <<parameters.ssh-username>>
-      host-pattern: <<parameters.host-pattern>>
-      on-sequence: <<parameters.on-sequence>>
-      off-sequence: <<parameters.off-sequence>>
+  - run_-with_jumphost:
+      jumphost_hostname: <<parameters.jumphost_hostname>>
+      key_fingerprint: <<parameters.key_fingerprint>>
+      ssh_username: <<parameters.ssh_username>>
+      host_pattern: <<parameters.host_pattern>>
+      on_sequence: <<parameters.on_sequence>>
+      off_sequence: <<parameters.off_sequence>>
       steps: <<parameters.steps>>

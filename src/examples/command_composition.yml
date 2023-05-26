@@ -7,20 +7,20 @@ usage:
     deploy-prod:
       executor: ssh-jumphost/minimal
       steps:
-        - ssh-jumphost/install_dependencies
-        - ssh-jumphost/setup_ssh:
-            key_fingerprint: 'a:b:c:d:e:f:g:h:i:j:k:l:m:n:o:p'
+        - ssh-jumphost/install-dependencies
+        - ssh-jumphost/setup-ssh:
+            key-fingerprint: 'a:b:c:d:e:f:g:h:i:j:k:l:m:n:o:p'
             #  e.g you want to access postgres01-prod.example.com, web01-prod.example.com
-            host_pattern: '*prod*.example.com'
-            ssh_username: deploy-user
+            host-pattern: '*prod*.example.com'
+            ssh-username: deploy-user
         # We want to use jumphost01 for all web servers
-        - ssh-jumphost/setup_proxyjump:
-            host_pattern: 'web*.example.com'
-            proxyjump_config: jumphost-user@jumphost01.example.com
+        - ssh-jumphost/setup-proxyjump:
+            host-pattern: 'web*.example.com'
+            proxyjump-config: jumphost-user@jumphost01.example.com
         # ... and jumphost02 for all appservers
-        - ssh-jumphost/setup_proxyjump:
-            host_pattern: 'app*.example.com'
-            proxyjump_config: jumphost-user@jumphost02.example.com
+        - ssh-jumphost/setup-proxyjump:
+            host-pattern: 'app*.example.com'
+            proxyjump-config: jumphost-user@jumphost02.example.com
         # Make both jumphosts reachable
         - ssh-jumphost/knock:
             host: jumphost01.example.com

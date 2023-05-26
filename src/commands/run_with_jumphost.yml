@@ -2,25 +2,25 @@ description: >
   Run steps with open jumphost connection
 
 parameters:
-  key-fingerprint:
+  key_fingerprint:
     type: string
     description: >
       Fingerprint of the SSH key, for more information about adding ssh keys please take a look at
       https://circleci.com/docs/2.0/configuration-reference/#add_ssh_keys
-  host-pattern:
+  host_pattern:
     type: string
     description: Pattern to match for jumphost connection
-  ssh-username:
+  ssh_username:
     type: string
     description: Username to use for ssh connections
     default: $USER
-  on-sequence:
+  on_sequence:
     type: string
     description: Port sequence to knock for opening ssh port
-  off-sequence:
+  off_sequence:
     type: string
     description: Port sequence to knock for closing ssh port
-  jumphost-hostname:
+  jumphost_hostname:
     type: string
     description: Hostname for jumphost
   delay:
@@ -32,13 +32,13 @@ parameters:
     description: Steps to execute with connection open
 
 steps:
-  - install-dependencies
-  - setup-ssh:
-      key-fingerprint: <<parameters.key-fingerprint>>
-      host-pattern: <<parameters.host-pattern>>
-      username: <<parameters.ssh-username>>
-  - setup-ignore-host-key:
-      host-pattern: <<parameters.jumphost-hostname>>
+  - install_dependencies
+  - setup_ssh:
+      key_fingerprint: <<parameters.key_fingerprint>>
+      host_pattern: <<parameters.host_pattern>>
+      username: <<parameters.ssh_username>>
+  - setup_ignore_host_key:
+      host_pattern: <<parameters.jumphost_hostname>>
   - knock:
       host: <<parameters.jumphost-hostname>>
       sequence: <<parameters.on-sequence>>

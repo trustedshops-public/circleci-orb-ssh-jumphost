@@ -10,19 +10,19 @@ usage:
       jobs:
         - ssh-jumphost/run-with-jumphost:
             name: deploy-prod
-            jumphost-hostname: jumphost.example.com
-            key-fingerprint: 'a:b:c:d:e:f:g:h:i:j:k:l:m:n:o:p'
+            jumphost_hostname: jumphost.example.com
+            key_fingerprint: 'a:b:c:d:e:f:g:h:i:j:k:l:m:n:o:p'
             #  e.g you want to access postgres01-prod.example.com, web01-prod.example.com
-            host-pattern: '*prod*.example.com'
+            host_pattern: '*prod*.example.com'
             # store them in env vars to prevent exposing via output
-            on-sequence: $PORT_KNOCKING_PROD_ON
-            off-sequence: $PORT_KNOCKING_PROD_OFF
+            on_sequence: $PORT_KNOCKING_PROD_ON
+            off_sequence: $PORT_KNOCKING_PROD_OFF
             steps:
               - checkout
               # We want to route everything through the jumphost
               - ssh-jumphost/setup-proxyjump:
-                  host-pattern: '*prod*.example.com'
-                  proxy-jump-config: jumphost.example.com
+                  host_pattern: '*prod*.example.com'
+                  proxy_jump_config: jumphost.example.com
               - run:
                   name: Execute the deployment
                   command: |
