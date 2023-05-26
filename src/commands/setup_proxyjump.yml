@@ -2,18 +2,18 @@ description: >
   Add ProxyJump ssh configuration for a given host pattern
 
 parameters:
-  host-pattern:
+  host_pattern:
     type: string
     description: Host pattern to configure the ProxyJump for
-  proxyjump-config:
+  proxyjump_config:
     type: string
     description: Configuration to use for proxyjump
 
 steps:
   - run:
-      name: Setup proxy jump for host pattern <<parameters.host-pattern>>
+      name: Setup proxy jump for host pattern <<parameters.host_pattern>>
       command: |
         cat \<<EOT >> ~/.ssh/config
-        Host <<parameters.host-pattern>>
-          ProxyJump <<parameters.proxyjump-config>>
+        Host <<parameters.host_pattern>>
+          ProxyJump <<parameters.proxyjump_config>>
         EOT

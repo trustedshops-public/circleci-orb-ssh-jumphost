@@ -2,12 +2,12 @@ description: >
   Setup SSH key and config for the given key and host pattern
 
 parameters:
-  key-fingerprint:
+  key_fingerprint:
     type: string
     description: >
       Fingerprint of the SSH key, for more information about adding ssh keys please take a look at
       https://circleci.com/docs/2.0/configuration-reference/#add_ssh_keys
-  host-pattern:
+  host_pattern:
     type: string
     description: Pattern to match for jumphost connection
   username:
@@ -18,15 +18,15 @@ parameters:
 steps:
   - add_ssh_keys:
       fingerprints:
-        - <<parameters.key-fingerprint>>
+        - <<parameters.key_fingerprint>>
   - run:
       name: Add SSH config
       command: |
-        filesuffix=$(echo "<<parameters.key-fingerprint>>" | sed "s/://g")
+        filesuffix=$(echo "<<parameters.key_fingerprint>>" | sed "s/://g")
         username=<<parameters.username>>
         mkdir -p ~/.ssh
         cat \<<EOT >> ~/.ssh/config
-        Host <<parameters.host-pattern>>
+        Host <<parameters.host_pattern>>
           User ${username:-`whoami`}
           IdentitiesOnly yes
           IdentityFile ~/.ssh/id_rsa_${filesuffix}
