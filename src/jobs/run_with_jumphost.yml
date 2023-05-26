@@ -38,7 +38,7 @@ parameters:
     description: Steps to execute with connection open
 
 steps:
-  - run_-with_jumphost:
+  - run_with_jumphost:
       jumphost_hostname: <<parameters.jumphost_hostname>>
       key_fingerprint: <<parameters.key_fingerprint>>
       ssh_username: <<parameters.ssh_username>>
