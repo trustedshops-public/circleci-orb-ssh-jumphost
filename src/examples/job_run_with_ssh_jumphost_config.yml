@@ -8,7 +8,7 @@ usage:
     version: 2
     continious:
       jobs:
-        - ssh-jumphost/run-with-jumphost:
+        - ssh-jumphost/run_with_jumphost:
             name: deploy-prod
             jumphost_hostname: jumphost.example.com
             key_fingerprint: 'a:b:c:d:e:f:g:h:i:j:k:l:m:n:o:p'

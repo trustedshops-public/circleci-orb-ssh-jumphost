@@ -40,9 +40,9 @@ steps:
   - setup_ignore_host_key:
       host_pattern: <<parameters.jumphost_hostname>>
   - knock:
-      host: <<parameters.jumphost-hostname>>
-      sequence: <<parameters.on-sequence>>
+      host: <<parameters.jumphost_hostname>>
+      sequence: <<parameters.on_sequence>>
   - <<parameters.steps>>
   - knock:
-      host: <<parameters.jumphost-hostname>>
-      sequence: <<parameters.off-sequence>>
+      host: <<parameters.jumphost_hostname>>
+      sequence: <<parameters.off_sequence>>
